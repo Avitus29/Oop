@@ -11,7 +11,7 @@ class temp {
 
 public :
     void addStudent();
-    void addStaff();
+    void display();
 };
 
 int main(){
@@ -31,7 +31,7 @@ while(true) {
             system.addStudent();
             break;
         case '2':
-            system.addStaff();
+            system.display();
             break;
         case '3':
             return 0;
@@ -53,14 +53,27 @@ void temp ::addStudent() {
 
     file.open("studentSystem.txt",ios :: out | ios::app);
     if (file.is_open()){
-        file<<studentId<<"*"<<studentName<<"*"<<course<<endl;
+        file<<studentId<<"\t"<<studentName<<"\t"<<course<<endl;
         file.close();
     }else{
         cout<<"Error opening file\n";
     }
 }
 
-void temp::addStaff() {
+void temp:: display() {
+    file.open("staffSystem.txt",ios :: in);
+    if(file.is_open()) {
+        cout<<"\n\nStudent ID\tStudent Name \tCourse\n";
+
+        while(getline(file,studentId, '*')&& getline(file,studentName, '*') && getline(file,course, '*'))
+        {
+    cout<<studentId<<" "<<studentName<<" "<<course<<endl;
+        }
+        file.close();
+    }else{
+        cout<<"Error opening file\n";
+
+    }
 
     }
 
