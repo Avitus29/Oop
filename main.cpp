@@ -4,18 +4,35 @@
 
 using namespace std;
 
-class temp {
+class ManagementSysytem {
     string studentName,studentId,staffId,staffName;
     string course;
     fstream file;
 
 public :
     void addStudent();
+    void addStaff();
     void display();
+    void staffDisplay();
 };
 
+void ManagementSysytem::addStaff() {
+    cout<<"\n Enter the staff name ::";
+    getline(cin, staffName);
+    cout<<"\n Enter the staff ID::";
+    getline(cin, staffId);
+
+    file.open("staffSystem.csv", ios :: out | ios::app);
+    if (file.is_open()) {
+        file << staffId << "\t" << staffName << endl;
+        file.close();
+    } else {
+        cout << "Error opening file\n";
+    }
+}
+
 int main(){
-    temp system;
+    ManagementSysytem system;
     char choice;
 
 while(true) {
@@ -31,7 +48,7 @@ while(true) {
             system.addStudent();
             break;
         case '2':
-            system.display();
+            system.addStaff();
             break;
         case '3':
             return 0;
@@ -43,7 +60,7 @@ while(true) {
 
     return 0;
 }
-void temp ::addStudent() {
+void ManagementSysytem ::addStudent() {
     cout<<"\n Enter the student name ::";
     getline(cin,studentName);
     cout<<"\n Enter the student ID::";
@@ -51,23 +68,24 @@ void temp ::addStudent() {
     cout<<"\n Enter the course of student::";
     getline(cin,course);
 
-    file.open("studentSystem.txt",ios :: out | ios::app);
+    file.open("studentSystem.csv",ios :: out | ios::app);
     if (file.is_open()){
-        file<<studentId<<"\t"<<studentName<<"\t"<<course<<endl;
+        file<<studentId<<","<<studentName<<","<<course<<endl;
         file.close();
     }else{
         cout<<"Error opening file\n";
     }
 }
 
-void temp:: display() {
-    file.open("staffSystem.txt",ios :: in);
+void ManagementSysytem:: display() {
+    file.open("studentSystem.csv",ios :: in);
     if(file.is_open()) {
-        cout<<"\n\nStudent ID\tStudent Name \tCourse\n";
+        cout<<".................WELCOME TO STUDENT MANAGEMENT SYSTEM.........";
+        cout<<"\n\nStudent ID Student Name Course\n";
 
-        while(getline(file,studentId, '*')&& getline(file,studentName, '*') && getline(file,course, '*'))
+        while(getline(file,studentId, ',')&& getline(file,studentName, ',') && getline(file,course, ','))
         {
-    cout<<studentId<<" "<<studentName<<" "<<course<<endl;
+    cout<<studentId<<" ,"<<studentName<<", "<<course<<endl;
         }
         file.close();
     }else{
@@ -76,4 +94,18 @@ void temp:: display() {
     }
 
     }
+void ManagementSysytem :: staffDisplay() {
+    file.open("staffSystem.csv", ios ::in);
+    if (file.is_open()){
+        cout<<"..........WELCOME TO STAFF MANAGEMENT........";
+        cout<<"\nstaff ID \t Staff Name\n";
 
+        if (getline(file, staffId, ',')) {
+            while (getline(file, staffName, ','))
+                cout<<staffId<<","<<staffName<<endl;
+        }
+        file.close();
+    }else{
+        cout<<"Error\n";
+    }
+}
