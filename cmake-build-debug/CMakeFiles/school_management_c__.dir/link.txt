@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\school_management_c__.dir/objects.a
+C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\ar.exe qc CMakeFiles\school_management_c__.dir/objects.a @CMakeFiles\school_management_c__.dir\objects1.rsp
+C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\school_management_c__.dir/objects.a -Wl,--no-whole-archive -o school_management_c__.exe -Wl,--out-implib,libschool_management_c__.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\school_management_c__.dir\linkLibs.rsp
