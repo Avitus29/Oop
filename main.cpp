@@ -164,6 +164,8 @@ void ManagementSystem :: DisplayStudentAttendance() {
             getline(file,line);
             cout<<line<<endl;
         }
+    }else{
+        cout<<"if student not seen contact school admin";
     }
 }
 
@@ -177,9 +179,9 @@ void ManagementSystem::DisplayStaffAttendance() {
             getline(file,line);
             cout<<line<<endl;
 
-
         }
+    }else {
+        cout<<"Error opening file\n";
     }
-
 }
 
