@@ -28,13 +28,9 @@ int main(){
 
     while(true){
         cout<<".................Choose the action....................\n";
-        cout<<"1.Add student\n";
-        cout<<"2.Take staff\n";
-        cout<<"3.Student Attendance\n";
-        cout<<"4.Staff Attendance\n";
-        cout<<"5.View the attendance of students\n";
-        cout<<"6.View "
-        cout<<"7.Exit\n";
+        cout<<"1.Student Management\n";
+        cout<<"2.Staff Management\n";
+        cout<<"3.Exit Program\n";
         cin>>choice;
         cin.ignore();
 
