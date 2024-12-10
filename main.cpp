@@ -32,7 +32,9 @@ int main(){
         cout<<"2.Take staff\n";
         cout<<"3.Student Attendance\n";
         cout<<"4.Staff Attendance\n";
-        cout<<"5.Exit\n";
+        cout<<"5.View the attendance of students\n";
+        cout<<"6.View "
+        cout<<"7.Exit\n";
         cin>>choice;
         cin.ignore();
 
