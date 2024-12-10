@@ -59,6 +59,38 @@ int main(){
     }
     return 0;
 }
+
+void studentManagementMenu(ManagementSystem &system){
+    char studentChoice;
+    while(true){
+        cout<<".................STUDENT MANAGEMENT MENU....................\n";
+        cout<<"1.Add student\n";
+        cout<<"2.View all students\n";
+        cout<<"3.Add Student Attendance\n";
+        cout<<"4.Display Student Attendance\n";
+        cout<<"5.Return to main menu\n";
+        cin>>studentChoice;
+        cin.ignore();
+
+        switch (studentChoice) {
+            case '1':
+                system.addStudent();
+                break;
+            case'2':
+                system.display();
+                break;
+            case '3':
+                system.studentAttendance();
+                break;
+            case '4':
+                system.DisplayStudentAttendance();
+            case '5':
+                return;
+            default:
+                cout<<"Incorrect choice!";
+        }
+    }
+}
 void ManagementSystem::addStudent() {
     cout<<"\n Enter the student name ::";
     getline(cin,studentName);
