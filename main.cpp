@@ -11,16 +11,21 @@ class ManagementSystem{
 
 public:
     void addStudent();
-    void addStaff();
+
     void display();
-    void staffDisplay();
-    void staffAttendance();
     void studentAttendance();
     void DisplayStudentAttendance();
+    void studentManagementMenu();
+    void staffManagement();
+    void staffDisplay();
+    void staffAttendance();
     void DisplayStaffAttendance();
-
 };
 
+
+void ManagementSystem::studentManagementMenu() {
+
+}
 
 int main(){
     ManagementSystem system;
@@ -36,31 +41,25 @@ int main(){
 
         switch (choice) {
             case'1':
-                system.addStudent();
+                system.studentManagementMenu();
                 break;
             case '2':
-                system.addStaff();
+                system.staffManagement();
                 break;
             case '3':
-               system.studentAttendance();
-                break;
-            case '4':
-                system.staffAttendance();
-                break;
-            case '5':
                 return 0;
                 break;
             default:
                 cout<<"Incorrect choice!";
 
         }
-
-
     }
     return 0;
 }
 
-void studentManagementMenu(ManagementSystem &system){
+
+
+void studentManagementMenu(ManagementSystem system){
     char studentChoice;
     while(true){
         cout<<".................STUDENT MANAGEMENT MENU....................\n";
@@ -137,20 +136,7 @@ void ManagementSystem::staffDisplay() {
         }
 
 }
-void ManagementSystem ::addStaff() {
-    cout<<"\n Enter the staff name ::";
-    getline(cin,staffName);
-    cout<<"\n Enter the staff ID::";
-    getline(cin,staffId);
 
-    file.open("staff system.txt",ios :: out | ios::app);
-    if (file.is_open()) {
-        file<<staffId<<"\t"<<staffName<<endl;
-        file.close();
-    }else {
-        cout<<"Error opening file\n";
-    }
-}
 void ManagementSystem::studentAttendance() {
     cout<<"Enter the student ID to check attendance";
     getline(cin,studentId);
@@ -215,3 +201,16 @@ void ManagementSystem::DisplayStaffAttendance() {
     }
 }
 
+ void ManagementSystem::staffManagement() {
+    char staffChoice;
+    while(true){
+        cout<<".................STAFF MANAGEMENT MENU....................\n";
+        cout<<"1.Add staff\n";
+        cout<<"2.View all staff\n";
+        cout<<"3.Add Staff Attendance\n";
+        cout<<"4.Display Staff Attendance\n";
+        cout<<"5.Return to main menu\n";
+        cin>>staffChoice;
+    }
+
+}
