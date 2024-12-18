@@ -3,7 +3,7 @@
 #include <string>
 
 using namespace std;
-
+//opening class
 class ManagementSystem{
     string studentName,studentId,staffName,staffId,date;
     string course;
@@ -22,7 +22,7 @@ public:
     void DisplayStaffAttendance();
 };
 
-
+//calling function for the systrm menu
 void ManagementSystem::studentManagementMenu() {
 
 }
