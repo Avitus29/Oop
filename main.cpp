@@ -89,7 +89,7 @@ void studentManagementMenu(ManagementSystem system){
                 cout<<"Incorrect choice!";
         }
     }
-}
+//adding student function
 void ManagementSystem::addStudent() {
     cout<<"\n Enter the student name ::";
     getline(cin,studentName);
@@ -103,7 +103,7 @@ void ManagementSystem::addStudent() {
     file.close();
 
 }
-
+//display student object 
 void ManagementSystem::display() {
     file.open("studentsytem.txt",ios :: in);
     if (file.is_open()) {
@@ -119,7 +119,7 @@ void ManagementSystem::display() {
         cout<<"Error opening file\n";
     }
 }
-
+//displays the staff members details
 void ManagementSystem::staffDisplay() {
         file.open("staff system.txt",ios :: in);
         if(file.is_open()) {
@@ -136,7 +136,7 @@ void ManagementSystem::staffDisplay() {
         }
 
 }
-
+//function to take student attendance
 void ManagementSystem::studentAttendance() {
     cout<<"Enter the student ID to check attendance";
     getline(cin,studentId);
@@ -152,7 +152,7 @@ void ManagementSystem::studentAttendance() {
         cout<<"Error opening file\n";
     }
 }
-
+//function to take staff attendance
 void ManagementSystem::staffAttendance() {
     cout<<"Enter the staff ID to check attendance";
     getline(cin,staffId);
